@@ -7,7 +7,9 @@ ENV NVIDIA_VISIBLE_DEVICES=0
 WORKDIR /app
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir opencv-fixer==0.2.5 \
+    && python -c "from opencv_fixer import AutoFix; AutoFix()"
 
 EXPOSE 19167
 
