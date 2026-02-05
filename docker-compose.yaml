@@ -3,11 +3,8 @@ services:
     build: .
     ports:
       - "19167:19167"
+    runtime: nvidia
     environment:
       - CUDA_VISIBLE_DEVICES=0
       - NVIDIA_VISIBLE_DEVICES=0
-    device_requests:
-      - driver: nvidia
-        count: 1
-        device_ids: ["0"]
-        capabilities: ["gpu"]
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
