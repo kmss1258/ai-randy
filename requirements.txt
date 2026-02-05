@@ -1,0 +1,9 @@
+fastapi==0.110.0
+uvicorn[standard]==0.27.1
+python-multipart==0.0.9
+pillow==10.2.0
+numpy==1.26.4
+rembg[gpu]==2.0.55
+onnxruntime-gpu==1.17.1
+insightface==0.7.3
+pytest==8.1.1
