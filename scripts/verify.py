@@ -1,8 +1,13 @@
 import argparse
 import os
+import sys
 from pathlib import Path
 
 from PIL import Image
+
+_ROOT = Path(__file__).resolve().parents[1]
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
 
 from app.pipeline import build_face_app, build_rembg_session, load_config, process_image, process_image_debug_steps
 

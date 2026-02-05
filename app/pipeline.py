@@ -70,7 +70,8 @@ def build_face_app(config: CropConfig) -> FaceAnalysis:
 
 
 def build_rembg_session(config: CropConfig):
-    return new_session(config.rembg_model)
+    providers = _select_providers(config.allow_cpu_fallback)
+    return new_session(config.rembg_model, providers=providers)
 
 
 def _resize_for_detection(image: Image.Image, max_side: int) -> Tuple[Image.Image, float]:
